@@ -1,0 +1,20 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+'''
+@date: 2013-10-16
+@author: shell.xu
+'''
+import sys
+from os import path
+import quickbox
+
+# todo: ls的时候第一个字母丢失
+
+if __name__ == '__main__':
+    args = sys.argv[:]
+    if args[0][:2] == './': args[0] = args[0][2:]
+    if path.basename(args[0]).startswith('qbox'):
+        args.pop(0)
+    elif args[0].startswith('q'):
+        args[0] = args[0][1:]
+    quickbox.main(args)
